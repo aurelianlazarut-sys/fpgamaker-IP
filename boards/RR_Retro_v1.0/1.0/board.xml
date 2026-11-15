@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<board schema_version="2.1" vendor="Adaptive_Design" name="RR_Retro_v1.0" display_name="RR Retro v1.0 Dev Board" url="https://adaptivedesign.ie" preset_file="preset.xml">
+  <file_version>1.0</file_version>
+  <images>
+    <image name="Spartan_RR_v1.0.jpg" display_name="RR Retro v1.0" sub_type="board">
+      <description>RR Retro v1.0 board image</description>
+    </image>
+  </images>
+  <description>RR Retro v1.0 custom Spartan-7 development board</description>
+  <compatible_board_revisions>
+    <revision id="0">1.0</revision>
+  </compatible_board_revisions>
+  <jumpers />
+  <components>
+    <component name="part0" display_name="Spartan-7 XC7S25" type="fpga" part_name="xc7s25ftgb196-1" pin_map_file="part0_pins.xml" vendor="xilinx">
+      <interfaces>
+        <interface mode="slave" name="clk" type="xilinx.com:signal:clock_rtl:1.0" of_component="clk">
+          <parameters>
+            <parameter name="frequency" value="100000000" />
+          </parameters>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="clk_wiz" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="CLK" physical_port="clk" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="clk" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface mode="slave" name="clk12" type="xilinx.com:signal:clock_rtl:1.0" of_component="clk12">
+          <parameters>
+            <parameter name="frequency" value="12000000" />
+          </parameters>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="clk_wiz" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="CLK" physical_port="clk12" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="clk12" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="dvi" mode="master" type="adaptivedesign.ie:interface:tmds_rtl:1.0" of_component="dvi">
+          <preferred_ips>
+            <preferred_ip vendor="adaptivedesign.ie" library="ip" name="rr_rgb2dvi" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="CLK_P" physical_port="DVI_CLK_P" dir="out">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="DVI_CLK_P" />
+              </pin_maps>
+            </port_map>
+            <port_map logical_port="CLK_N" physical_port="DVI_CLK_N" dir="out">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="DVI_CLK_N" />
+              </pin_maps>
+            </port_map>
+            <port_map logical_port="DATA_P" physical_port="DVI_P" dir="out" left="2" right="0">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="DVI_P0" />
+                <pin_map port_index="1" component_pin="DVI_P1" />
+                <pin_map port_index="2" component_pin="DVI_P2" />
+              </pin_maps>
+            </port_map>
+            <port_map logical_port="DATA_N" physical_port="DVI_N" dir="out" left="2" right="0">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="DVI_N0" />
+                <pin_map port_index="1" component_pin="DVI_N1" />
+                <pin_map port_index="2" component_pin="DVI_N2" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="vga" mode="master" type="adaptivedesign.ie:interface:vga_rgb_rtl:1.0" of_component="vga">
+          <preferred_ips>
+            <preferred_ip vendor="adaptivedesign.ie" library="ip" name="rr_vga_test" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="RED" physical_port="VGA_R" dir="out" left="3" right="0">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="VGA_R0" />
+                <pin_map port_index="1" component_pin="VGA_R1" />
+                <pin_map port_index="2" component_pin="VGA_R2" />
+                <pin_map port_index="3" component_pin="VGA_R3" />
+              </pin_maps>
+            </port_map>
+            <port_map logical_port="GREEN" physical_port="VGA_G" dir="out" left="3" right="0">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="VGA_G0" />
+                <pin_map port_index="1" component_pin="VGA_G1" />
+                <pin_map port_index="2" component_pin="VGA_G2" />
+                <pin_map port_index="3" component_pin="VGA_G3" />
+              </pin_maps>
+            </port_map>
+            <port_map logical_port="BLUE" physical_port="VGA_B" dir="out" left="3" right="0">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="VGA_B0" />
+                <pin_map port_index="1" component_pin="VGA_B1" />
+                <pin_map port_index="2" component_pin="VGA_B2" />
+                <pin_map port_index="3" component_pin="VGA_B3" />
+              </pin_maps>
+            </port_map>
+            <port_map logical_port="VSYNC" physical_port="VGA_VS" dir="out">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="VGA_VS" />
+              </pin_maps>
+            </port_map>
+            <port_map logical_port="HSYNC" physical_port="VGA_HS" dir="out">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="VGA_HS" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="s1" of_component="S1" mode="slave" type="xilinx.com:signal:reset_rtl:1.0">
+          <description>S1 active-high reset input, package pin M5.</description>
+          <parameters>
+            <parameter name="rst_polarity" value="1" />
+          </parameters>
+          <preferred_ips>
+            <preferred_ip vendor="adaptivedesign.ie" library="ip" name="rr_vga_test" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="RST" physical_port="S1" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="S1" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="s2" of_component="S2" preset_proc="input_1bit_preset" mode="master" type="xilinx.com:interface:gpio_rtl:1.0">
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="TRI_I" physical_port="S2" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="S2" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="s3" of_component="S3" preset_proc="input_1bit_preset" mode="master" type="xilinx.com:interface:gpio_rtl:1.0">
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="TRI_I" physical_port="S3" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="S3" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="s4" of_component="S4" preset_proc="input_1bit_preset" mode="master" type="xilinx.com:interface:gpio_rtl:1.0">
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="TRI_I" physical_port="S4" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="S4" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="sw2" of_component="SW2" preset_proc="input_1bit_preset" mode="master" type="xilinx.com:interface:gpio_rtl:1.0">
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="TRI_I" physical_port="SW2" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="SW2" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="sw3" of_component="SW3" preset_proc="input_1bit_preset" mode="master" type="xilinx.com:interface:gpio_rtl:1.0">
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="TRI_I" physical_port="SW3" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="SW3" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="sw4" of_component="SW4" preset_proc="input_1bit_preset" mode="master" type="xilinx.com:interface:gpio_rtl:1.0">
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="TRI_I" physical_port="SW4" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="SW4" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+        <interface name="sw5" of_component="SW5" preset_proc="input_1bit_preset" mode="master" type="xilinx.com:interface:gpio_rtl:1.0">
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+          <port_maps>
+            <port_map logical_port="TRI_I" physical_port="SW5" dir="in">
+              <pin_maps>
+                <pin_map port_index="0" component_pin="SW5" />
+              </pin_maps>
+            </port_map>
+          </port_maps>
+        </interface>
+      </interfaces>
+    </component>
+    <!-- System Clocks -->
+    <component name="clk" display_name="100MHz System Clock" type="chip" sub_type="system_clock" major_group="Clock Sources">
+      <parameters>
+        <parameter name="frequency" value="100000000" />
+      </parameters>
+      <pins>
+        <pin index="0" name="CLK" />
+      </pins>
+      <component_modes>
+        <component_mode name="clk" display_name="100MHz System Clock">
+          <interfaces>
+            <interface name="clk" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="clk_wiz" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="clk12" display_name="12MHz System Clock" type="chip" sub_type="system_clock" major_group="Clock Sources">
+      <parameters>
+        <parameter name="frequency" value="12000000" />
+      </parameters>
+      <pins>
+        <pin index="0" name="CLK" />
+      </pins>
+      <component_modes>
+        <component_mode name="clk12" display_name="12MHz System Clock">
+          <interfaces>
+            <interface name="clk12" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="clk_wiz" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <!-- General Purpose I/O Components mapped as distinct names -->
+    <component name="led0" display_name="LED 0" type="chip" sub_type="led" />
+    <component name="led1" display_name="LED 1" type="chip" sub_type="led" />
+    <component name="led2" display_name="LED 2" type="chip" sub_type="led" />
+    <component name="led3" display_name="LED 3" type="chip" sub_type="led" />
+    <component name="led4" display_name="LED 4" type="chip" sub_type="led" />
+    <component name="led5" display_name="LED 5" type="chip" sub_type="led" />
+    <component name="led6" display_name="LED 6" type="chip" sub_type="led" />
+    <component name="led7" display_name="LED 7" type="chip" sub_type="led" />
+    <component name="S1" display_name="S1 VGA reset (active high)" type="chip" sub_type="switch" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="S1" />
+      </pins>
+      <component_modes>
+        <component_mode name="s1" display_name="S1 active-high reset">
+          <interfaces>
+            <interface name="s1" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="adaptivedesign.ie" library="ip" name="rr_vga_test" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="S2" display_name="Switch 2" type="chip" sub_type="switch" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="S2" />
+      </pins>
+      <component_modes>
+        <component_mode name="s2" display_name="Switch 2">
+          <interfaces>
+            <interface name="s2" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="S3" display_name="Switch 3" type="chip" sub_type="switch" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="S3" />
+      </pins>
+      <component_modes>
+        <component_mode name="s3" display_name="Switch 3">
+          <interfaces>
+            <interface name="s3" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="S4" display_name="Switch 4" type="chip" sub_type="switch" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="S4" />
+      </pins>
+      <component_modes>
+        <component_mode name="s4" display_name="Switch 4">
+          <interfaces>
+            <interface name="s4" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="SW2" display_name="Button 2" type="chip" sub_type="push_button" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="SW2" />
+      </pins>
+      <component_modes>
+        <component_mode name="sw2" display_name="Button 2">
+          <interfaces>
+            <interface name="sw2" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="SW3" display_name="Button 3" type="chip" sub_type="push_button" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="SW3" />
+      </pins>
+      <component_modes>
+        <component_mode name="sw3" display_name="Button 3">
+          <interfaces>
+            <interface name="sw3" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="SW4" display_name="Button 4" type="chip" sub_type="push_button" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="SW4" />
+      </pins>
+      <component_modes>
+        <component_mode name="sw4" display_name="Button 4">
+          <interfaces>
+            <interface name="sw4" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="SW5" display_name="Button 5" type="chip" sub_type="push_button" major_group="Switches and Buttons">
+      <pins>
+        <pin index="0" name="SW5" />
+      </pins>
+      <component_modes>
+        <component_mode name="sw5" display_name="Button 5">
+          <interfaces>
+            <interface name="sw5" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component name="UART_RX" display_name="UART RX" type="chip" sub_type="uart" />
+    <component name="UART_TX" display_name="UART TX" type="chip" sub_type="uart" />
+    <component name="vga" display_name="VGA 12-bit RGB" type="chip" sub_type="chip" major_group="Video">
+      <description>DB15 VGA output: 4-bit red, green and blue, horizontal and vertical sync. Requires a video controller.</description>
+      <pins>
+        <pin index="0" name="VGA_R0" />
+        <pin index="1" name="VGA_R1" />
+        <pin index="2" name="VGA_R2" />
+        <pin index="3" name="VGA_R3" />
+        <pin index="4" name="VGA_G0" />
+        <pin index="5" name="VGA_G1" />
+        <pin index="6" name="VGA_G2" />
+        <pin index="7" name="VGA_G3" />
+        <pin index="8" name="VGA_B0" />
+        <pin index="9" name="VGA_B1" />
+        <pin index="10" name="VGA_B2" />
+        <pin index="11" name="VGA_B3" />
+        <pin index="12" name="VGA_VS" />
+        <pin index="13" name="VGA_HS" />
+      </pins>
+      <component_modes>
+        <component_mode name="vga" display_name="VGA 12-bit RGB and sync">
+          <interfaces>
+            <interface name="vga" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="adaptivedesign.ie" library="ip" name="rr_vga_test" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+    <component major_group="Video" type="chip" display_name="DVI TMDS output" sub_type="chip" name="dvi">
+      <description>DVI TMDS clock and three data pairs. Requires TMDS encoding, serialization and differential output buffers.</description>
+      <pins>
+        <pin index="0" name="DVI_CLK_P" />
+        <pin index="1" name="DVI_CLK_N" />
+        <pin index="2" name="DVI_P0" />
+        <pin index="3" name="DVI_N0" />
+        <pin index="4" name="DVI_P1" />
+        <pin index="5" name="DVI_N1" />
+        <pin index="6" name="DVI_P2" />
+        <pin index="7" name="DVI_N2" />
+      </pins>
+      <component_modes>
+        <component_mode name="dvi" display_name="DVI TMDS clock and data pairs">
+          <interfaces>
+            <interface name="dvi" />
+          </interfaces>
+          <preferred_ips>
+            <preferred_ip vendor="adaptivedesign.ie" library="ip" name="rr_rgb2dvi" order="0" />
+          </preferred_ips>
+        </component_mode>
+      </component_modes>
+    </component>
+  </components>
+  <connections>
+    <connection name="part0_clk" component1="part0" component2="clk">
+      <connection_map name="part0_clk_map" c1_st_index="0" c1_end_index="0" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_clk12" component1="part0" component2="clk12">
+      <connection_map name="part0_clk12_map" c1_st_index="1" c1_end_index="1" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_vga_red" component1="part0" component2="vga">
+      <connection_map name="vga_red_map" c1_st_index="20" c1_end_index="23" c2_st_index="0" c2_end_index="3" />
+    </connection>
+    <connection name="part0_vga_green" component1="part0" component2="vga">
+      <connection_map name="vga_green_map" c1_st_index="24" c1_end_index="27" c2_st_index="4" c2_end_index="7" />
+    </connection>
+    <connection name="part0_vga_blue" component1="part0" component2="vga">
+      <connection_map name="vga_blue_map" c1_st_index="28" c1_end_index="31" c2_st_index="8" c2_end_index="11" />
+    </connection>
+    <connection name="part0_vga_vsync" component1="part0" component2="vga">
+      <connection_map name="vga_vsync_map" c1_st_index="32" c1_end_index="32" c2_st_index="12" c2_end_index="12" />
+    </connection>
+    <connection name="part0_vga_hsync" component1="part0" component2="vga">
+      <connection_map name="vga_hsync_map" c1_st_index="33" c1_end_index="33" c2_st_index="13" c2_end_index="13" />
+    </connection>
+    <connection name="part0_dvi_clock" component1="part0" component2="dvi">
+      <connection_map name="dvi_clock_map" c1_st_index="78" c1_end_index="79" c2_st_index="0" c2_end_index="1" />
+    </connection>
+    <connection name="part0_dvi_data0" component1="part0" component2="dvi">
+      <connection_map name="dvi_data0_map" c1_st_index="80" c1_end_index="81" c2_st_index="2" c2_end_index="3" />
+    </connection>
+    <connection name="part0_dvi_data1" component1="part0" component2="dvi">
+      <connection_map name="dvi_data1_map" c1_st_index="84" c1_end_index="85" c2_st_index="4" c2_end_index="5" />
+    </connection>
+    <connection name="part0_dvi_data2" component1="part0" component2="dvi">
+      <connection_map name="dvi_data2_map" c1_st_index="82" c1_end_index="83" c2_st_index="6" c2_end_index="7" />
+    </connection>
+    <connection name="part0_S1" component1="part0" component2="S1">
+      <connection_map name="S1_map" c1_st_index="10" c1_end_index="10" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_S2" component1="part0" component2="S2">
+      <connection_map name="S2_map" c1_st_index="11" c1_end_index="11" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_S3" component1="part0" component2="S3">
+      <connection_map name="S3_map" c1_st_index="12" c1_end_index="12" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_S4" component1="part0" component2="S4">
+      <connection_map name="S4_map" c1_st_index="13" c1_end_index="13" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_SW2" component1="part0" component2="SW2">
+      <connection_map name="SW2_map" c1_st_index="14" c1_end_index="14" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_SW3" component1="part0" component2="SW3">
+      <connection_map name="SW3_map" c1_st_index="15" c1_end_index="15" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_SW4" component1="part0" component2="SW4">
+      <connection_map name="SW4_map" c1_st_index="16" c1_end_index="16" c2_st_index="0" c2_end_index="0" />
+    </connection>
+    <connection name="part0_SW5" component1="part0" component2="SW5">
+      <connection_map name="SW5_map" c1_st_index="17" c1_end_index="17" c2_st_index="0" c2_end_index="0" />
+    </connection>
+  </connections>
+</board>
