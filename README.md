@@ -47,4 +47,4 @@ The optional bank-wide `LVCMOS33` settings are commented out. Enable them only a
 
 ## More information
 
-For more information about the RR Retro board, visit [Adaptive Design](https://adaptivedesign.ie).
+For more information about the RR Retro board, see the [Adaptive Design blog](https://adaptivedesign.ie/blog) and [FPGA Maker](https://fpgamaker.com).
